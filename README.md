@@ -34,7 +34,7 @@ Anthony Martin's personal blog. Built with Rails.
 
 - Create posts.
 - List all the posts.
-- Add comments and likes to a posts.
+- Add comments and likes to a post.
 - See all comments and likes in a post.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -43,7 +43,7 @@ Anthony Martin's personal blog. Built with Rails.
 
 ### Prerequisites
 
-In order to run this project you need following dependencies:
+To run this project you need the following dependencies:
 
  - Ruby: `3.1.3+`
  - Rails: `7.0.4.3+`
@@ -60,6 +60,8 @@ In order to run this project you need following dependencies:
 ```sh
   bundle install
 ```
+- Create environment variables `POSTGRESQL_USER` and `POSTGRESQL_PASSWORD` or edit `config/database.yml` with your database connection info.
+
 - Recreate Data Base:
 ```sh
   rake db:schema:load
@@ -67,7 +69,7 @@ In order to run this project you need following dependencies:
 
 ### Usage
 
-To run the project, execute the following command in terminal:
+To run the project, execute the following command in the terminal:
 
 ```  sh
   cd anthony-blog
@@ -87,9 +89,9 @@ To run the project, execute the following command in terminal:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Create model and add validation.
+- Add validations to the model.
 - Create controllers.
-- Create web interface.
+- Create a web interface.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,7 +114,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse community for the support and guidance.
+I would like to thank the Microverse community for their support and guidance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
