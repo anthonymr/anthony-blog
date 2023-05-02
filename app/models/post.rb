@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
   def self.last_comments(post)
-    return unless post
+    return [] unless post
 
     Comment.where(post_id: post[:id]).order(created_at: :desc).limit(5)
   end
