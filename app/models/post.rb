@@ -16,7 +16,6 @@ class Post < ApplicationRecord
   def self.update_post_counter(user)
     return unless user
 
-    count = Post.where(author_id: user[:id]).count
-    user.update(posts_counter: count)
+    user.update(posts_counter: user.posts.count)
   end
 end
