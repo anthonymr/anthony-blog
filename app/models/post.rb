@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   def self.last_comments(post)
     return [] unless post
 
-    Comment.where(post_id: post[:id]).order(created_at: :desc).limit(5)
+    post.comments.last(5)
   end
 
   def self.update_post_counter(user)
