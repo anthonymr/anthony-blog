@@ -1,0 +1,11 @@
+.post__container {
+  width: 100%;
+}
+
+.post__container > .post__counters {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
