@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ a {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+button {
+  line-height: 40px;
+  margin: 10px;
+  border: none;
+  background-color: rgb(118, 118, 179);
+  color: white;
+}
