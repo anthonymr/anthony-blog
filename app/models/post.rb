@@ -8,14 +8,10 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
   def self.last_comments(post)
-    return [] unless post
-
     post.comments.last(5)
   end
 
   def self.update_post_counter(user)
-    return unless user
-
     user.update(posts_counter: user.posts.count)
   end
 end
