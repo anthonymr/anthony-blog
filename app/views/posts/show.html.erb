@@ -1,1 +1,5 @@
-<h2>Here is one post</h2>
+<%= render partial: 'post', locals: {post: @post, truncated_message: false, show_all_comments: true} %>
+
+<%= link_to user_posts_path(@post.id) do %>
+  <button>Go back</button>
+<% end %>
