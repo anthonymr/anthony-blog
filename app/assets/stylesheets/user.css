@@ -4,9 +4,9 @@
   padding: 10px;
   display: flex;
   font-family: sans-serif;
- }
+}
 
- .user__picture {
+.user__picture {
   width: 100px;
   height: 100px;
   border: 1px solid #ccc;
