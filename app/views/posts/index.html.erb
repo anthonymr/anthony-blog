@@ -1,1 +1,9 @@
-<h2>Here is a list of all posts of a given user</h2>
+<%= render partial: 'users/user', locals: { user: @user } %>
+
+<%= render partial: 'post', collection: @posts, locals: {truncated_message: true, show_lasts_comments: true} %>
+
+<button>Pagination</button>
+
+<%= link_to user_path(@user.id) do %>
+  <button>Go back</button>
+<% end %>
