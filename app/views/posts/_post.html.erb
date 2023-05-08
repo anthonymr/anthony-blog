@@ -1,0 +1,35 @@
+<%= link_to user_post_path(post.author, post) do %>
+  <article class="container">
+    <div class="post__container">
+      <h3><%= post.title %></h3>
+      <% if local_assigns[:show_all_comments] %>
+        <div class="post__counters">
+          Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+        </div>
+      <% end %>
+      <div>
+        <%= post.text.truncate(20) if truncated_message %>
+        <%= post.text unless truncated_message %>
+      </div>
+      <% if !local_assigns[:show_all_comments] %>
+        <div class="post__counters">
+          Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+        </div>
+      <% end %>
+    </div>
+  </article>
+<% end %>
+
+<% if local_assigns[:show_all_comments] && post.comments.any? %>
+  <div class="container">
+    <div><%= render partial: 'shared/comment', collection: post.comments %></div>
+  </div>
+<% end %>
+
+<% if local_assigns[:show_lasts_comments] && Post.last_comments(post).any? %>
+  <div class="container">
+    <div><%= render partial: 'shared/comment', collection: Post.last_comments(post) %></div>
+  </div>
+<% end %>
+
+
