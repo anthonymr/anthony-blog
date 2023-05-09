@@ -24,13 +24,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def add_like
-    @post = Post.find(params[:id])
-    Like.create(post: @post, author: current_user)
-    Like.update_like_counter(@post)
-    redirect_to user_posts_path(@post.author)
-  end
-
   private
 
   def post_params
