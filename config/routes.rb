@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     end
   end
 
+  put '/posts/:id/add_like', to: 'posts#add_like', as: 'add_like'
   root 'users#index'
 end
