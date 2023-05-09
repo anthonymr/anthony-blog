@@ -12,7 +12,14 @@ en:
     user:
       number_of_posts: 'Number of posts'
   posts:
-    create:
+    new:
       title: 'Create new post'
+    create:
       created: 'Post created'
       not_created: 'Post not created, please, try again!'
+  comments:
+    new:
+      title: 'Add new comment'
+    create:
+      created: 'Comment created'
+      not_created: 'Comment not created, please, try again!'
