@@ -7,6 +7,13 @@
           <%=t('common.comments')%>: <%= post.comments_counter %>, <%=t('common.likes')%>: <%= post.likes_counter %>
         </div>
       <% end %>
+
+      <%= link_to add_like_path(post), data: {
+        turbo_method: :put
+      }, class: 'like-button' do %>
+        <button> <%= t('.like') %> </button>
+      <% end %>
+
       <div>
         <%= post.text.truncate(20) if truncated_message %>
         <%= post.text unless truncated_message %>
