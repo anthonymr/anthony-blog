@@ -17,6 +17,8 @@ en:
     create:
       created: 'Post created'
       not_created: 'Post not created, please, try again!'
+    post:
+      like: 'Add Like'
   comments:
     new:
       title: 'Add new comment'
