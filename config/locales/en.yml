@@ -8,7 +8,11 @@ en:
   users:
     show:
       see_all_posts: 'See all posts'
+      new_post: 'New post'
     user:
       number_of_posts: 'Number of posts'
   posts:
-    post:
+    create:
+      title: 'Create new post'
+      created: 'Post created'
+      not_created: 'Post not created, please, try again!'
