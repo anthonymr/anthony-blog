@@ -2,8 +2,8 @@
 
 <%= render partial: 'post', collection: @posts, locals: {truncated_message: true, show_lasts_comments: true} %>
 
-<button>Pagination</button>
+<button><%=t('common.pagination')%></button>
 
 <%= link_to user_path(@user.id) do %>
-  <button>Go back</button>
+  <button><%=t('common.go_back')%></button>
 <% end %>

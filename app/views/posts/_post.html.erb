@@ -4,16 +4,23 @@
       <h3><%= post.title %></h3>
       <% if local_assigns[:show_all_comments] %>
         <div class="post__counters">
-          Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+          <%=t('common.comments')%>: <%= post.comments_counter %>, <%=t('common.likes')%>: <%= post.likes_counter %>
         </div>
       <% end %>
+
+      <%= link_to user_post_likes_path(post.author, post), data: {
+        turbo_method: :post
+      }, class: 'like-button' do %>
+        <button> <%= t('.like') %> </button>
+      <% end %>
+
       <div>
         <%= post.text.truncate(20) if truncated_message %>
         <%= post.text unless truncated_message %>
       </div>
       <% if !local_assigns[:show_all_comments] %>
         <div class="post__counters">
-          Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+          <%=t('common.comments')%>: <%= post.comments_counter %>, <%=t('common.likes')%>: <%= post.likes_counter %>
         </div>
       <% end %>
     </div>

@@ -28,3 +28,9 @@ button {
   background-color: rgb(118, 118, 179);
   color: white;
 }
+
+.like-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
