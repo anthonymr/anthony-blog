@@ -4,7 +4,7 @@
       <h3><%= post.title %></h3>
       <% if local_assigns[:show_all_comments] %>
         <div class="post__counters">
-          Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+          <%=t('common.comments')%>: <%= post.comments_counter %>, <%=t('common.likes')%>: <%= post.likes_counter %>
         </div>
       <% end %>
       <div>
@@ -13,7 +13,7 @@
       </div>
       <% if !local_assigns[:show_all_comments] %>
         <div class="post__counters">
-          Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+          <%=t('common.comments')%>: <%= post.comments_counter %>, <%=t('common.likes')%>: <%= post.likes_counter %>
         </div>
       <% end %>
     </div>

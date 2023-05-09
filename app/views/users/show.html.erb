@@ -2,7 +2,7 @@
 
 <article class="container">
   <div class="user__bio">
-    <h3>Bio</h3>
+    <h3><%=t('common.bio')%></h3>
     <div>
       <%= @user.bio %>
     </div>
@@ -12,8 +12,8 @@
 <%= render partial: 'posts/post', collection: User.last_posts(@user), locals: {truncated_message: true, show_lasts_comments: true}%>
 
 <%= link_to user_posts_path(@user.id) do %>
-  <button>See all posts</button>
+  <button><%=t('.see_all_posts')%></button>
 <% end %>
 <%= link_to users_path do %>
-  <button>Go back</button>
+  <button><%=t('common.go_back')%></button>
 <% end %>
