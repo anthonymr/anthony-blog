@@ -17,6 +17,8 @@ class Post < ApplicationRecord
     params[:comments_counter] = 0
     params[:likes_counter] = 0
     super(params)
+
+    Post.update_post_counter(post_params[:author])
   end
 
   def self.last_comments(post)

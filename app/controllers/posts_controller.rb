@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.create(post_params)
+    @post = Post.create(post_params(current_user))
 
     if @post.valid?
       redirect_to user_post_path(current_user, @post), notice: t('.created')
@@ -26,7 +26,9 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-   params.require(:post).permit(:title, :text)
+  def post_params(author)
+    post = params.require(:post).permit(:title, :text)
+    post[:author] = author
+    post
   end
 end
