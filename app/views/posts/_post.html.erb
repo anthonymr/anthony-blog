@@ -8,7 +8,7 @@
         </div>
       <% end %>
 
-      <%= link_to user_post_likes_path(post.author, post), data: {
+      <%= link_to post_likes_path(post), data: {
         turbo_method: :post
       }, class: 'like-button' do %>
         <button> <%= t('.like') %> </button>

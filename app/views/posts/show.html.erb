@@ -1,6 +1,6 @@
 <%= render partial: 'post', locals: {post: @post, truncated_message: false, show_all_comments: true} %>
 
-<%= link_to new_user_post_comment_path(@user.id, @post.id) do %>
+<%= link_to new_post_comment_path(@post.id) do %>
   <button><%=t('.new_comment')%></button>
 <% end %>
 
