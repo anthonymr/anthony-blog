@@ -7,6 +7,18 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
+  def initialize(post_params)
+    if post_params.nil?
+      super
+      return
+    end
+
+    params = post_params
+    params[:comments_counter] = 0
+    params[:likes_counter] = 0
+    super(params)
+  end
+
   def self.last_comments(post)
     post.comments.last(5)
   end
