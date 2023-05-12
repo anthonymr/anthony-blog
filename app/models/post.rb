@@ -7,25 +7,18 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
+  after_create :update_post_counter
+  after_destroy :update_post_counter
+
   def initialize(post_params)
-    if post_params.nil?
-      super
-      return
-    end
-
-    params = post_params
-    params[:comments_counter] = 0
-    params[:likes_counter] = 0
-    super(params)
-
-    Post.update_post_counter(post_params[:author])
+    post_params.nil? ? super : super(post_params.merge(comments_counter: 0, likes_counter: 0))
   end
 
   def self.last_comments(post)
     post.comments.last(5)
   end
 
-  def self.update_post_counter(user)
-    user.update(posts_counter: user.posts.count)
+  def update_post_counter
+    author.update(posts_counter: author.posts.count)
   end
 end

@@ -5,7 +5,6 @@ class LikesController < ApplicationController
 
     likes.any? ? likes.each(&:destroy) : Like.create(post: post, author: current_user)
 
-    Like.update_like_counter(post)
     redirect_to user_posts_path(post.author)
   end
 end

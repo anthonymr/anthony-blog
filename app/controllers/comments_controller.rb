@@ -5,22 +5,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(comments_params(current_user, post))
+    @comment = post.comments.create(comments_params.merge(author: current_user))
 
     if @comment.valid?
       redirect_to user_post_path(current_user, post), notice: t('.created')
     else
-      redirect_to new_post_comment_path(current_user, post), alert: t('.not_created')
+      redirect_to new_post_comment_path(post), alert: t('.not_created')
     end
   end
 
   private
 
-  def comments_params(author, post)
-    comment = params.require(:comment).permit(:text)
-    comment[:author] = author
-    comment[:post] = post
-    comment
+  def comments_params
+    params.require(:comment).permit(:text)
   end
 
   def post
