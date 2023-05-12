@@ -1,5 +1,5 @@
 <%= form_with model: [@post, @comment] do |form| %>
-  <% @post.errors.full_messages.each do |error| %>
+  <% @comment.errors.full_messages.each do |error| %>
     <div><%= error %></div>
   <% end %>
   
