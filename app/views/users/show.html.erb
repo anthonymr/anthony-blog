@@ -9,7 +9,7 @@
   </div>
 </article>
 
-<%= render partial: 'posts/post', collection: User.last_posts(@user), locals: {truncated_message: true, show_lasts_comments: true}%>
+<%= render partial: 'posts/post', collection: @user.last_posts, locals: {truncated_message: true, show_lasts_comments: true}%>
 
 <%= link_to user_posts_path(@user.id) do %>
   <button><%=t('.see_all_posts')%></button>

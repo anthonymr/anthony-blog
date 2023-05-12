@@ -13,8 +13,8 @@ class Post < ApplicationRecord
     post_params.nil? ? super : super(post_params.merge(comments_counter: 0, likes_counter: 0))
   end
 
-  def self.last_comments(post)
-    post.comments.last(5)
+  def last_comments
+    comments.last(5)
   end
 
   def update_post_counter
