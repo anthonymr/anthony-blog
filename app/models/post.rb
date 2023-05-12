@@ -7,8 +7,7 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
-  after_create :update_post_counter
-  after_destroy :update_post_counter
+  after_commit :update_post_counter, on: %i[create destroy]
 
   def initialize(post_params)
     post_params.nil? ? super : super(post_params.merge(comments_counter: 0, likes_counter: 0))

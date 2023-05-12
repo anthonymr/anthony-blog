@@ -2,8 +2,9 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  after_create :update_comment_counter
-  after_destroy :update_comment_counter
+  validates :text, presence: true, length: { maximum: 500 }
+
+  after_commit :update_comment_counter, on: %i[create destroy]
 
   def update_comment_counter
     post.update(comments_counter: post.comments.count)
