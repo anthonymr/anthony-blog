@@ -21,4 +21,8 @@ class Post < ApplicationRecord
   def update_post_counter
     author.update(posts_counter: author.posts.count)
   end
+
+  def likes_by(user)
+    likes.where(author: user)
+  end
 end
