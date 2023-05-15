@@ -46,8 +46,8 @@ describe 'Use page show ', type: :feature do
     @post2 = Post.create(title: 'title2', text: 'post2', likes_counter: 0, comments_counter: 0, author: @user1)
     @post2 = Post.create(title: 'title2', text: 'post3', likes_counter: 0, comments_counter: 0, author: @user1)
 
-
     visit user_path(@user1.id)
+    I18n.locale = :en
   end
 
   it "user's profile picture" do
@@ -58,7 +58,7 @@ describe 'Use page show ', type: :feature do
   it "show user's name" do
     expect(page).to have_content 'user1'
   end
-  it "number of posts per user" do
+  it 'number of posts per user' do
     expect(page).to have_content(1)
   end
 
@@ -73,20 +73,16 @@ describe 'Use page show ', type: :feature do
   end
 
   it "show button that lets me view all of a user's posts." do
-    expect(page).to have_link('see all posts')
+    expect(page).to have_link(I18n.t('users.show.see_all_posts'))
   end
 
   it "When I click a user's post, it redirects me to that post's show page" do
-    click_link "see all posts"
+    click_link I18n.t('users.show.see_all_posts')
     expect(page).to have_current_path user_posts_path(@user1, @post_1)
   end
 
   it "When I click to see all posts, it redirects me to the user's post's index page" do
-    click_link "see all posts"
+    click_link I18n.t('users.show.see_all_posts')
     expect(page).to have_current_path user_posts_path(@user1)
   end
-
 end
-
-
-
