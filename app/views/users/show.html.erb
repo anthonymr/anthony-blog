@@ -12,7 +12,7 @@
 <%= render partial: 'posts/post', collection: @user.last_posts, locals: {truncated_message: true, show_lasts_comments: true}%>
 
 <%= link_to user_posts_path(@user.id) do %>
-  <button><%=t('.see_all_posts')%></button>
+  <button><%=t('.see_all_posts')%>see all posts</button>
 <% end %>
 
 <%= link_to new_user_post_path(@user.id) do %>
