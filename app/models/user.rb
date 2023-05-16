@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
+  validates :email, presence: true, uniqueness: true
 
   def last_posts
     posts.last(3)
