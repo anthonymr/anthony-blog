@@ -65,3 +65,53 @@ describe 'User post index page', type: :feature do
     expect(page).to have_current_path(user_post_path(1, 1))
   end
 end
+
+describe 'Post show page', type: :feature do
+  before :each do
+  @user1 = User.create(id: 1, name: 'user1', photo: 'photo1', bio: 'a test user', posts_counter: 0)
+
+  @post1 = Post.create(title: 'title1', text: 'post1', likes_counter: 0, comments_counter: 0, author: @user1)
+  @post2 = Post.create(title: 'title2', text: 'post2', likes_counter: 0, comments_counter: 0, author: @user1)
+  @post2 = Post.create(title: 'title2', text: 'post3', likes_counter: 0, comments_counter: 0, author: @user1)
+
+  @comment1 = Comment.create(text: 'comment1', author: User.first, post: Post.first)
+  @comment2 = Comment.create(text: 'comment2', author: User.first, post: Post.first)
+  @comment3 = Comment.create(text: 'comment3', author: User.first, post: Post.first)
+  visit user_posts_path(@user1, @post1)
+  end
+
+  it 'shows posts title' do
+    expect(page).to have_content('post1')
+  end
+
+  it 'shows the person who wrote the post' do
+    expect(page).to have_content('user1')
+  end
+
+  it 'shows number of comments' do
+    post = Post.first
+    expect(post.comments_counter).to eql(3)
+  end
+
+  it 'see the post body.' do
+    expect(page).to have_content('post1')
+  end
+
+  it 'see username of each commentor' do
+    expect(page).to have_content('user1')
+  end
+
+  it 'shows number of likes' do
+    post = Post.first
+    expect(page).to have_content(post.likes_counter)
+  end
+
+  it 'see the comments of each commentor' do
+    expect(@comment1.text).to eq('comment1')
+    expect(@comment2.text).to eq('comment2')
+    expect(@comment3.text).to eq('comment3')
+
+  end
+
+end
+
