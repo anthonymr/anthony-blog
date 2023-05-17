@@ -58,7 +58,7 @@ nav > * {
   margin: 0 10px;
 }
 
-.like-button {
+.float-buttons {
   position: absolute;
   top: 0;
   right: 0;

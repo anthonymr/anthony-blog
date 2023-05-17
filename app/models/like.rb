@@ -5,6 +5,6 @@ class Like < ApplicationRecord
   after_commit :update_like_counter, on: %i[create destroy]
 
   def update_like_counter
-    post.update(likes_counter: post.likes.count)
+    post.update(likes_counter: post.likes.count) unless post.destroyed?
   end
 end

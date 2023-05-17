@@ -14,6 +14,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+
+    if comment.destroy
+      redirect_to user_post_path(comment.author, post), notice: t('.deleted')
+      post.update_post_counter
+    else
+      redirect_to user_post_path(comment.author, post), alert: t('.not_deleted')
+    end
+  end
+
   private
 
   def comments_params

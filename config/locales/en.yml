@@ -5,6 +5,7 @@ en:
     pagination: 'Pagination'
     comments: 'Comments'
     likes: 'Likes'
+    delete: 'Delete'
   users:
     show:
       see_all_posts: 'See all posts'
@@ -17,11 +18,18 @@ en:
     create:
       created: 'Post created'
       not_created: 'Post not created, please, try again!'
+    destroy:
+      deleted: 'Post deleted'
+      not_deleted: 'Post not deleted, please, try again!'
     post:
       like: 'Add Like'
+      delete: 'Delete post'
   comments:
     new:
       title: 'Add new comment'
     create:
       created: 'Comment created'
       not_created: 'Comment not created, please, try again!'
+    destroy:
+      deleted: 'Comment deleted'
+      not_deleted: 'Comment not deleted, please, try again!'
