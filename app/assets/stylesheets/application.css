@@ -14,19 +14,48 @@
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  border-bottom: 2px solid rgb(118, 118, 179);
+  padding-bottom: 10px;
+  width: fit-content;
+  margin: 30px auto;
+}
+
 a {
-  color: black;
+  color: rgb(118, 118, 179);
+  font-weight: 600;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
-button {
+button,
+input[type="submit"],
+input[type="reset"] {
   line-height: 40px;
-  margin: 10px;
   border: none;
   background-color: rgb(118, 118, 179);
   color: white;
+  padding: 0 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+a > button,
+a > input[type="submit"],
+a > input[type="reset"] {
+  margin-left: 10px;
+}
+
+nav > * {
+  margin: 0 10px;
 }
 
 .like-button {

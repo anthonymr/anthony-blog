@@ -1,0 +1,41 @@
+form {
+  max-width: 350px;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+form > div > label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+form > div > input,
+form > div > select,
+form > div > textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 15px;
+  line-height: 34px;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  padding: 0 10px;
+}
+
+form .remember {
+  display: flex;
+}
+
+form .remember > input {
+  width: 20px;
+}
+
+.devise_link {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  width: fit-content;
+}

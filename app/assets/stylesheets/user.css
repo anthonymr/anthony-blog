@@ -1,15 +1,16 @@
 .container {
-  border: 1px solid #ccc;
+  border: 1px solid #e6e6e6;
   margin: 10px;
   padding: 10px;
   display: flex;
   font-family: sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
 .user__picture {
   width: 100px;
   height: 100px;
-  border: 1px solid #ccc;
+  background-color: #e6e6e6;
 }
 
 .user__body {
