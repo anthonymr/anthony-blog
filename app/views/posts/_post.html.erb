@@ -15,11 +15,11 @@
           <button> <%= t('.like') %> </button>
         <% end %>
         <% if can? :destroy, post %>
-        <%= link_to post_path(post), data: {
-          turbo_method: :delete
-        } do %>
-          <button> <%= t('.delete') %> </button>
-        <% end %>
+          <%= link_to post_path(post), data: {
+            turbo_method: :delete
+          } do %>
+            <button> <%= t('.delete') %> </button>
+          <% end %>
         <% end %>
       </div>
 
