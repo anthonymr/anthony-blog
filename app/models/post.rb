@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   end
 
   def update_post_counter
-    author.update(posts_counter: author.posts.count)
+    author.update(posts_counter: author.posts.count) unless author.destroyed?
   end
 
   def likes_by(user)

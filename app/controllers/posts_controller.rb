@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.includes(:posts, posts: [:author, :comments, { comments: :author }]).find(params[:user_id])
     @posts = @user.posts
@@ -19,6 +21,16 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(current_user), notice: t('.created')
     else
       redirect_to new_user_post_path(current_user), alert: t('.not_created')
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: t('.deleted')
+    else
+      redirect_to user_posts_path(current_user), alert: t('.not_deleted')
     end
   end
 

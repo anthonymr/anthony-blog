@@ -8,11 +8,20 @@
         </div>
       <% end %>
 
-      <%= link_to post_likes_path(post), data: {
-        turbo_method: :post
-      }, class: 'like-button' do %>
-        <button> <%= t('.like') %> </button>
-      <% end %>
+      <div class="float-buttons">
+        <%= link_to post_likes_path(post), data: {
+          turbo_method: :post
+        } do %>
+          <button> <%= t('.like') %> </button>
+        <% end %>
+        <% if can? :destroy, post %>
+          <%= link_to post_path(post), data: {
+            turbo_method: :delete
+          } do %>
+            <button> <%= t('.delete') %> </button>
+          <% end %>
+        <% end %>
+      </div>
 
       <div>
         <%= post.text.truncate(20) if truncated_message %>
@@ -29,13 +38,13 @@
 
 <% if local_assigns[:show_all_comments] && post.comments.any? %>
   <div class="container">
-    <div><%= render partial: 'shared/comment', collection: post.comments %></div>
+    <div><%= render partial: 'comments/comment', collection: post.comments %></div>
   </div>
 <% end %>
 
 <% if local_assigns[:show_lasts_comments] && post.last_comments.any? %>
   <div class="container">
-    <div><%= render partial: 'shared/comment', collection: post.last_comments %></div>
+    <div><%= render partial: 'comments/comment', collection: post.last_comments %></div>
   </div>
 <% end %>
 

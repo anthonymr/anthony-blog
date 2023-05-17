@@ -7,6 +7,6 @@ class Comment < ApplicationRecord
   after_commit :update_comment_counter, on: %i[create destroy]
 
   def update_comment_counter
-    post.update(comments_counter: post.comments.count)
+    post.update(comments_counter: post.comments.count) unless post.destroyed?
   end
 end

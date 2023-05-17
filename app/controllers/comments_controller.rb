@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @post = post
     @comment = Comment.new
@@ -11,6 +13,17 @@ class CommentsController < ApplicationController
       redirect_to user_post_path(current_user, post), notice: t('.created')
     else
       redirect_to new_post_comment_path(post), alert: t('.not_created')
+    end
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+
+    if comment.destroy
+      redirect_to user_post_path(comment.author, post), notice: t('.deleted')
+      post.update_post_counter
+    else
+      redirect_to user_post_path(comment.author, post), alert: t('.not_deleted')
     end
   end
 
