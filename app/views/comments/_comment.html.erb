@@ -1,6 +1,8 @@
 <div>
   <%= comment.author.name %>: <%= comment.text %>
+  <% if can? :destroy, comment%>
   <%= link_to t('common.delete'), post_comment_path(comment.post, comment), data: {
     turbo_method: :delete
   } %>
+  <% end %>
 </div>
