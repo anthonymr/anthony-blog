@@ -25,16 +25,6 @@ form > div > textarea {
   padding: 0 10px;
 }
 
-form input[type="submit"],
-form input[type="reset"],
-form button {
-  line-height: 40px;
-  border: none;
-  background-color: rgb(118, 118, 179);
-  color: white;
-  box-sizing: border-box;
-}
-
 form .remember {
   display: flex;
 }

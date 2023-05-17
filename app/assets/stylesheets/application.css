@@ -36,12 +36,22 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 
-button {
+button,
+input[type="submit"],
+input[type="reset"] {
   line-height: 40px;
-  margin: 10px;
   border: none;
   background-color: rgb(118, 118, 179);
   color: white;
+  padding: 0 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+a > button,
+a > input[type="submit"],
+a > input[type="reset"] {
+  margin-left: 10px;
 }
 
 nav > * {
