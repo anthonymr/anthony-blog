@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ActionController::API
+class Api::V1::PostsController < ActionController::API
   load_and_authorize_resource
 
   def index
