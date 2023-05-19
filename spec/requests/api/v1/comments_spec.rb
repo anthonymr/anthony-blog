@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/comments', type: :request do
-
   path '/api/v1/posts/{post_id}/comments' do
     # You'll want to customize the parameter types...
     parameter name: 'post_id', in: :path, type: :string, description: 'post_id'
